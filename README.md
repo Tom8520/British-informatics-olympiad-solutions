@@ -8,6 +8,7 @@ A collection of solutions to past british informatics olympiad problems
 -Fully correct
  -Terminal Velocity
  -Byway
+ -Best Of Show
  
 -Partial marks
  -Vision
