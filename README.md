@@ -1,6 +1,20 @@
 # British-informatics-olympiad-solutions
 A collection of solutions to past british informatics olympiad problems
 
--For round 1 problems i will try and only include solutions which get full marks
+-All round 1 problems will get full marks
 
--For finals problems i cannot guarantee that they work as no test data or model solutions are provided
+-For finals problems some get partial marks some get none some are correct and some i have no way to tell
+
+-Fully correct
+ -Terminal Velocity
+ -Byway
+ 
+-Partial marks
+ -Vision
+ -Spycraft
+ 
+-No marks
+ -Cog Day
+ 
+-Unknown
+ -I Spy
