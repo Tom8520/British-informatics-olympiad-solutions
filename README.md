@@ -19,3 +19,5 @@ No marks:
  
 Unknown:
  * I Spy
+
+If there are any issues with any solutions i will try to correct them.
