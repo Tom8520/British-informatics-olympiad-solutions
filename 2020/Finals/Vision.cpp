@@ -1,96 +1,79 @@
-#include <iostream>
-#include <vector>
-
-#define ll long long
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main() {
-	int t, w;
-	cin >> t >> w;
+#define ll long long
+ll NINF = LONG_LONG_MIN;
 
-	vector<int> s(t);
-	vector<ll> sCum(t);
+int main(){
+    ifstream in("input.txt");
+    ofstream out("output.txt");
+    int t, w;
+    in >> t >> w;
 
-	for ( int i = 0; i < t; i++ ){
-		cin >> s [i];
-		if ( i == 0 )sCum [i] = s [i];
-		else sCum [i] = sCum [i-1] + s [i];
-	}
+    vector<ll> s(t);
+    vector<ll> sum(t+1);
+    sum [0] = 0;
+    for ( int i = 0; i < t; i++ ){
+        in >> s [i];
+        sum [i+1] = sum [i] + s [i];
+    }
 
-	vector<int> u(w);
+    ll m = NINF;
+    vector<ll> u(w);
+    for ( int i = 0; i < w; i++ ){
+        in >> u [i];
+        m = max(m, u [i]);
+    }
 
-	int mu = 0;
+    ll dp[m+1];
+    dp [0] = 0;
+    dp [1] = s [0];
 
-	for ( int i = 0; i < w; i++ ){
-		cin >> u [i];
-		mu = max(mu, u [i]);
-	}
+    priority_queue<vector<ll>, vector<vector<ll>>, greater<vector<ll>>> nxt;
 
-	vector<ll> dp [mu+1];
+    for ( int i = 2; i <= m; i++ ){
+        vector<ll> c = {-1, -1};
+        if ( i <= t )c = {0, sum [i], s [i-2], s [i-1], i};
+        while ( !nxt.empty() && nxt.top() [0] <= i ){
+            vector<ll> a = nxt.top();
+            nxt.pop();
+            a [1] += (i-a [4]-(i-a [4])%2)/2*(a [2]+a [3]);
+            if ( (i-a [4])%2 == 1 ){
+                a [1] += a [2];
+                swap(a [2], a [3]);
+            }
+            a [4] = i;
 
-	dp [0] = {0, -1};
+            if ( c [0] == -1 ){
+                c = a;
+                continue;
+            }
 
-	for ( int i = 1; i < mu+1; i++ ){
-		vector<ll> n = {};
+            if ( a [1] > c [1] ){
+                swap(a, c);
+            }
+            if ( a [2]+a [3]-c [2]-c [3] <= 0 )continue;
+            int n = ceil((long double)(c [1]-a [1])/(a [2]+a [3]-c [2]-c [3]));
+            a [0] = max(i+1, i+(2*n));
+            if ( a [1] + n*(a [2]+a [3])-a [3] >= c [1] + n*(c [2]+c [3])-c [3] ) {
+                a[0] = max(i + 1, (int) a[0] - 1);
+            }
+            nxt.push(a);
+        }
+        dp [i] = c [1];
+        c [0] = i+1;
+        nxt.push(c);
+    }
 
-		vector<ll> c = {};
+    //for ( int i = 0; i <= m; i++ ){
+        //cout << dp [i] << " ";
+    //}cout << '\n';
 
-		if ( i <= t ){
-			c = {sCum [i-1], i-1};
-		}
+    ll ans = 0;
+    for ( auto i : u ){
+        ans += dp [i];
+    }
 
-		if ( c.size() > 0 ){
-			n = c;
-		}
-
-		for ( int j = 1; j < dp [i-1].size(); j++){
-
-			vector<ll> d1 = {};
-
-			if ( dp [i-1][j] > 0){
-				d1 = {dp [i-1][0] + s [dp [i-1][j]-1], dp [i-1][j]-1};
-			}
-
-			vector<ll> d2 = {};
-
-			if ( dp [i-1][j] != t-1 && dp [i-1][j] != -1 ){
-				d2 = {dp [i-1][0] + s [dp [i-1][j]+1], dp [i-1][j]+1};
-			}
-
-			if ( d1.size() > 0 ){
-				if ( n.size() == 0 ){
-					n = d1;
-				} else{
-					if ( d1 [0] > n [0] ){
-						n = d1;
-					} else if ( d1 [0] == n [0] ){
-						n.push_back(d1 [1]);
-					}
-				}
-			}
-			if ( d2.size() > 0 ){
-				if ( n.size() == 0 ){
-					n = d2;
-				} else{
-					if ( d2 [0] > n [0] ){
-						n = d2;
-					} else if ( d2 [0] == n [0] ){
-						n.push_back(d2 [1]);
-					}
-				}
-			}
-		}
-
-		dp [i] = n;
-	}
-
-	ll sum = 0;
-
-	for ( int i = 0; i < w; i++ ){
-		sum += dp [u [i]][0];
-	}
-
-	cout << (ll) sum << endl;
+    out << ans << '\n';
 }
-
