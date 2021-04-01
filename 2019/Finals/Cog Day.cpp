@@ -5,111 +5,73 @@ using namespace std;
 #define ll long long
 #define ld long double
 
-int c, t;
-
-struct point{
-	ll x, y;
-public:
-	point();
-	point(ll a, ll b);
-
+struct pt{
+    ll x, y;
 };
 
-point::point(ll a, ll b){
-	x = a;
-	y = b;
-}
-point::point(){};
+int n, m;
+vector<pt> p;
+vector<pt> t;
 
-ld getLength(point a, point b){
-	return sqrt(pow(a.x-b.x, 2)+pow(a.y-b.y, 2));
+ll doubleArea(pt a, pt b, pt c){
+    return abs(a.x*(b.y-c.y) + b.x*(c.y-a.y) + c.x*(a.y-b.y));
 }
 
-ld getAngle(point a, point b, point c){
-	ld d = getLength(a, b);
-	ld e = getLength(a, c);
-	ld f = getLength(b, c);
-	if ( d*e == 0 )return 0;
-	return acos((pow(d, 2)+pow(e, 2)-pow(f, 2))/(2*d*e));
+bool valid(pt a, pt b, pt c){
+    ll area = doubleArea(a, b, c);
+    //if ( area == 0 )return true;
+
+    for ( auto p : t ){
+        ll a1 = doubleArea(p, b, c);
+        ll a2 = doubleArea(a, p, c);
+        ll a3 = doubleArea(a, b, p);
+
+        if ( area == a1+a2+a3 )return false;
+    }
+
+    return true;
 }
-
-ld getArea(point a, point b, point c){
-	return 0.5*getLength(a, b)*getLength(a, c)*sin(getAngle(a, b, c));
-}
-
-vector<point> v, w;
-
-bool isValid(point a, point b){
-	ld m = a.x-b.x == 0 ? 0 : (a.y-b.y)/(a.x-b.x);
-	for ( auto p : w ){
-		if ( a.x-b.x == 0 ){
-			if ( a.y > b.y ){
-				if ( p.x <= a.x )return false;
-			} else{
-				if ( p.x >= a.x ) return false;
-			}
-			continue;
-		}
-		if ( a.y >= b.y ){
-			if ( m <= 0 ){
-				if ( p.y-a.y <= m*(p.x-a.x) )return false;
-			} else{
-				if ( p.y-a.y >= m*(p.x-a.x) )return false;
-			}
-		} else{
-			if ( m < 0 ){
-				if ( p.y-a.y >= m*(p.x-a.x) )return false;
-			} else{
-				if ( p.y-a.y <= m*(p.x-a.x) )return false;
-			}
-		}
-	}
-	return true;
-}
-
 
 int main(){
-	cin >> c >> t;
+    ifstream in("input.txt");
+    ofstream out("output.txt");
 
-	v.assign(c, point());
-	w.assign(t, point());
+    in >> n >> m;
 
-	for ( int i = 0; i < c; i++ ){
-		ll x, y;
-		cin >> x >> y;
-		v [i] = point(x, y);
-	}
+    for ( int i = 0; i < n; i++ ){
+        ll x, y;
+        in >> x >> y;
 
-	for ( int i = 0; i < t; i++ ){
-		ll x, y;
-		cin >> x >> y;
-		w [i] = point(x, y);
-	}
+        p.push_back({x, y});
+    }
 
-	ld area = 0;
-	ld currentArea = 0;
+    for ( int i = 0; i < m; i++ ){
+        ll x, y;
+        in >> x >> y;
 
-	int a = 0;
-	int b = 1;
-	int pa = 0;
-	int pb = 0;
+        t.push_back({x, y});
+    }
 
-	while ( b != a ){
-		currentArea += getArea(v [a],v [b], v [pb]);
+    int a = 1;
+    int b = 0;
+    int cnt = 1;
+    ll currentArea = 0;
+    ll maxArea = 0;
 
-		if ( isValid(v [a], v [b]) ){
-			pb = b;
-			if ( b != 0 )b++;
-			b %= c;
-			area = max(area, currentArea);
-		} else{
-			pa = a;
-			a++;
-			currentArea -= getArea(v [a], v [b], v [pa]);
-		}
-		//cout << a << " " << b << " - " << currentArea << '\n';
-	}
+    while ( b < n && cnt < n){
+        if ( valid(p [a], p [b], p [(a+1)%n]) ){
+            currentArea += doubleArea(p [a], p [b], p [(a+1)%n]);
+            a++;
+            a %= n;
+            //if ( currentArea > maxArea )cout << a << " " << b << '\n';
+            maxArea = max(maxArea, currentArea);
+            cnt++;
+        } else{
+            currentArea -= doubleArea(p [b], p [(b+1)%n], p [a]);
+            b++;
+            cnt--;
+        }
+    }
 
-	cout << floor(area) << '\n';
-
+    out << (ll)floor((ld)maxArea/2) << '\n';
 }
