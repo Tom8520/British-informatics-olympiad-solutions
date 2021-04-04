@@ -32,13 +32,13 @@ int main(){
 
     priority_queue<vector<ll>, vector<vector<ll>>, greater<vector<ll>>> nxt;
 
-    for ( int i = 2; i <= m; i++ ){
+    for ( ll i = 2; i <= m; i++ ){
         vector<ll> c = {-1, -1};
         if ( i <= t )c = {0, sum [i], s [i-2], s [i-1], i};
         while ( !nxt.empty() && nxt.top() [0] <= i ){
             vector<ll> a = nxt.top();
             nxt.pop();
-            a [1] += (i-a [4]-(i-a [4])%2)/2*(a [2]+a [3]);
+            a [1] += (ll)((i-a [4]-(i-a [4])%2)/2)*(a [2]+a [3]);
             if ( (i-a [4])%2 == 1 ){
                 a [1] += a [2];
                 swap(a [2], a [3]);
@@ -53,11 +53,17 @@ int main(){
             if ( a [1] > c [1] ){
                 swap(a, c);
             }
-            if ( a [2]+a [3]-c [2]-c [3] <= 0 )continue;
-            int n = ceil((long double)(c [1]-a [1])/(a [2]+a [3]-c [2]-c [3]));
+            if ( a [2]+a [3]-c [2]-c [3] <= 0 ) {
+                if ( c [1]-c [3] - a [1] + a [3] > 0 )continue;
+                ll n = floor((long double)(c [1]-a [1]-c [3]+a [3])/(a [2]+a [3]-c [2]-c [3]));
+                a [0] = max(i+1, i+(2*n)-1);
+                nxt.push(a);
+                continue;
+            }
+            ll n = floor((long double)(c [1]-a [1])/(a [2]+a [3]-c [2]-c [3]));
             a [0] = max(i+1, i+(2*n));
             if ( a [1] + n*(a [2]+a [3])-a [3] >= c [1] + n*(c [2]+c [3])-c [3] ) {
-                a[0] = max(i + 1, (int) a[0] - 1);
+                a[0] = max(i + 1, (ll) a[0] - 1);
             }
             nxt.push(a);
         }
@@ -67,7 +73,7 @@ int main(){
     }
 
     //for ( int i = 0; i <= m; i++ ){
-        //cout << dp [i] << " ";
+    //cout << dp [i] << " ";
     //}cout << '\n';
 
     ll ans = 0;
@@ -75,5 +81,5 @@ int main(){
         ans += dp [i];
     }
 
-    out << ans << '\n';
+    out << (ll)ans << '\n';
 }
