@@ -14,6 +14,7 @@ Fully correct:
  * Tick Tock
  * Cog Day
  * Prototype
+ * Dinocracy
  
 Partial marks:
  * Vision
