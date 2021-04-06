@@ -1,8 +1,21 @@
 # British-informatics-olympiad-solutions
+
 A collection of solutions to past british informatics olympiad problems
 
-All round 1 problems will get full marks.
+-----
+# First round problems
 
+| Year | Q1 | Q2 | Q3 |
+| - | - | - | - |
+| 2015 | ✅ | ✅ | ✅ |
+| 2016 |  |  |  |
+| 2017 |  |  |  |
+| 2018 |  |  |  |
+| 2019 |  |  |  |
+| 2020 | ✅ |  |  |
+| 2021 | ✅ |  | ✅ |
+
+# Finals
 For finals problems some get partial marks some get none some are correct and some i have no way to tell:
 
 Fully correct:
