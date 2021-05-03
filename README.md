@@ -29,6 +29,7 @@ Fully correct:
  * Prototype
  * Dinocracy
  * What A Carve Up
+ * I Spy
  
 Partial marks:
  * Vision
@@ -36,6 +37,5 @@ Partial marks:
 No marks:
  
 Unknown:
- * I Spy
 
 If there are any issues with any solutions i will try to correct them.
