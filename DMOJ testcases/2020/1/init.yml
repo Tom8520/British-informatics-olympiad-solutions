@@ -1,0 +1,13 @@
+test_cases:
+- {in: RomanLook-and-Say_case_1.in, out: RomanLook-and-Say_case_1.out, points: 1}
+- {in: RomanLook-and-Say_case_2.in, out: RomanLook-and-Say_case_2.out, points: 1}
+- {in: RomanLook-and-Say_case_3.in, out: RomanLook-and-Say_case_3.out, points: 2}
+- {in: RomanLook-and-Say_case_4.in, out: RomanLook-and-Say_case_4.out, points: 2}
+- {in: RomanLook-and-Say_case_5.in, out: RomanLook-and-Say_case_5.out, points: 2}
+- {in: RomanLook-and-Say_case_6.in, out: RomanLook-and-Say_case_6.out, points: 2}
+- {in: RomanLook-and-Say_case_7.in, out: RomanLook-and-Say_case_7.out, points: 2}
+- {in: RomanLook-and-Say_case_8.in, out: RomanLook-and-Say_case_8.out, points: 2}
+- {in: RomanLook-and-Say_case_9.in, out: RomanLook-and-Say_case_9.out, points: 2}
+- {in: RomanLook-and-Say_case_10.in, out: RomanLook-and-Say_case_10.out, points: 2}
+- {in: RomanLook-and-Say_case_11.in, out: RomanLook-and-Say_case_11.out, points: 2}
+- {in: RomanLook-and-Say_case_12.in, out: RomanLook-and-Say_case_12.out, points: 2}

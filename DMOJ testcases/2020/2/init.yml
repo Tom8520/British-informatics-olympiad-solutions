@@ -1,0 +1,17 @@
+test_cases:
+- {in: FalsePlan_case_1.in, out: FalsePlan_case_1.out, points: 1}
+- {in: FalsePlan_case_2.in, out: FalsePlan_case_2.out, points: 1}
+- {in: FalsePlan_case_3.in, out: FalsePlan_case_3.out, points: 1}
+- {in: FalsePlan_case_4.in, out: FalsePlan_case_4.out, points: 1}
+- {in: FalsePlan_case_5.in, out: FalsePlan_case_5.out, points: 1}
+- {in: FalsePlan_case_6.in, out: FalsePlan_case_6.out, points: 1}
+- {in: FalsePlan_case_7.in, out: FalsePlan_case_7.out, points: 1}
+- {in: FalsePlan_case_8.in, out: FalsePlan_case_8.out, points: 1}
+- {in: FalsePlan_case_9.in, out: FalsePlan_case_9.out, points: 1}
+- {in: FalsePlan_case_10.in, out: FalsePlan_case_10.out, points: 2}
+- {in: FalsePlan_case_11.in, out: FalsePlan_case_11.out, points: 2}
+- {in: FalsePlan_case_12.in, out: FalsePlan_case_12.out, points: 2}
+- {in: FalsePlan_case_13.in, out: FalsePlan_case_13.out, points: 3}
+- {in: FalsePlan_case_14.in, out: FalsePlan_case_14.out, points: 3}
+- {in: FalsePlan_case_15.in, out: FalsePlan_case_15.out, points: 3}
+- {in: FalsePlan_case_16.in, out: FalsePlan_case_16.out, points: 3}
