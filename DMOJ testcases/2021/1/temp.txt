@@ -1,0 +1,66 @@
+[1]
+DE C
+-
+NO
+YES
+YES
+[2]
+A A
+-
+YES
+YES
+NO
+[2]
+A B
+-
+YES
+YES
+NO
+[2]
+B A
+-
+YES
+YES
+YES
+[2]
+AB CD
+-
+NO
+NO
+NO
+[2]
+BEFCD A
+-
+NO
+YES
+YES
+[2]
+GEA DBCF
+-
+NO
+NO
+YES
+[2]
+EFCD GAB
+-
+YES
+YES
+YES
+[2]
+ECBDFA LKJIHG
+-
+YES
+NO
+NO
+[2]
+BDIGEF HCA
+-
+NO
+NO
+YES
+[2]
+JKHGIL ADFEBC
+-
+NO
+NO
+YES

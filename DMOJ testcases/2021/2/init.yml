@@ -1,0 +1,11 @@
+test_cases:
+- {in: Tri-iso-game_case_1.in, out: Tri-iso-game_case_1.out, points: 2}
+- {in: Tri-iso-game_case_2.in, out: Tri-iso-game_case_2.out, points: 4}
+- {in: Tri-iso-game_case_3.in, out: Tri-iso-game_case_3.out, points: 4}
+- {in: Tri-iso-game_case_4.in, out: Tri-iso-game_case_4.out, points: 2}
+- {in: Tri-iso-game_case_5.in, out: Tri-iso-game_case_5.out, points: 2}
+- {in: Tri-iso-game_case_6.in, out: Tri-iso-game_case_6.out, points: 2}
+- {in: Tri-iso-game_case_7.in, out: Tri-iso-game_case_7.out, points: 2}
+- {in: Tri-iso-game_case_8.in, out: Tri-iso-game_case_8.out, points: 2}
+- {in: Tri-iso-game_case_9.in, out: Tri-iso-game_case_9.out, points: 2}
+- {in: Tri-iso-game_case_10.in, out: Tri-iso-game_case_10.out, points: 2}

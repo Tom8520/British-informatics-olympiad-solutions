@@ -1,0 +1,16 @@
+test_cases:
+- {in: WindowDressing_case_1.in, out: WindowDressing_case_1.out, points: 1}
+- {in: WindowDressing_case_2.in, out: WindowDressing_case_2.out, points: 1}
+- {in: WindowDressing_case_3.in, out: WindowDressing_case_3.out, points: 1}
+- {in: WindowDressing_case_4.in, out: WindowDressing_case_4.out, points: 1}
+- {in: WindowDressing_case_5.in, out: WindowDressing_case_5.out, points: 1}
+- {in: WindowDressing_case_6.in, out: WindowDressing_case_6.out, points: 1}
+- {in: WindowDressing_case_7.in, out: WindowDressing_case_7.out, points: 2}
+- {in: WindowDressing_case_8.in, out: WindowDressing_case_8.out, points: 2}
+- {in: WindowDressing_case_9.in, out: WindowDressing_case_9.out, points: 2}
+- {in: WindowDressing_case_10.in, out: WindowDressing_case_10.out, points: 2}
+- {in: WindowDressing_case_11.in, out: WindowDressing_case_11.out, points: 2}
+- {in: WindowDressing_case_12.in, out: WindowDressing_case_12.out, points: 2}
+- {in: WindowDressing_case_13.in, out: WindowDressing_case_13.out, points: 2}
+- {in: WindowDressing_case_14.in, out: WindowDressing_case_14.out, points: 2}
+- {in: WindowDressing_case_15.in, out: WindowDressing_case_15.out, points: 2}
