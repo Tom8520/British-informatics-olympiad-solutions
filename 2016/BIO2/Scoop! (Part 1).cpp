@@ -1,3 +1,4 @@
+//this can also be done by running a BFS from the starting node and taking 6*(v-1) - 3*(max distance found in BFS)
 #include <bits/stdc++.h>
 
 using namespace std;
