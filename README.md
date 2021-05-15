@@ -35,6 +35,7 @@ Fully correct:
  * MaSKeD
  * Riverbank
  * Scoop! (Part 1)
+ * Scoop! (Part 2)
  
 Partial marks:
  * Vision
