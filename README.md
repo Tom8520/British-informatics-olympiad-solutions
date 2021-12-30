@@ -39,9 +39,8 @@ Fully correct:
  
 Partial marks:
  * Vision
- 
-No marks:
- 
+
 Unknown:
+ * Paper Trail
 
 If there are any issues with any solutions i will try to correct them.
